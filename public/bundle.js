@@ -52,13 +52,175 @@
 
 	var _reactDom = __webpack_require__(33);
 
-	var _Main = __webpack_require__(172);
+	var _AppTweetList = __webpack_require__(172);
 
-	var _Main2 = _interopRequireDefault(_Main);
+	var _AppTweetList2 = _interopRequireDefault(_AppTweetList);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	(0, _reactDom.render)(_react2.default.createElement(_Main2.default, null), document.getElementById('root'));
+	var tweets = [{
+	  "coordinates": null,
+	  "favorited": false,
+	  "truncated": false,
+	  "created_at": "Wed Aug 29 17:12:58 +0000 2012",
+	  "id_str": "240859602684612608",
+	  "entities": {
+	    "urls": [{
+	      "expanded_url": "https://dev.twitter.com/blog/twitter-certified-products",
+	      "url": "https://t.co/MjJ8xAnT",
+	      "indices": [52, 73],
+	      "display_url": 'dev.twitter.com/blog/twitter-c…'
+	    }],
+	    "hashtags": [],
+	    "user_mentions": []
+	  },
+	  "in_reply_to_user_id_str": null,
+	  "contributors": null,
+	  "text": "Introducing the Twitter Certified Products Program: https://t.co/MjJ8xAnT",
+	  "retweet_count": 121,
+	  "in_reply_to_status_id_str": null,
+	  "id": 240859602684612608,
+	  "geo": null,
+	  "retweeted": false,
+	  "possibly_sensitive": false,
+	  "in_reply_to_user_id": null,
+	  "place": null,
+	  "user": {
+	    "profile_sidebar_fill_color": "DDEEF6",
+	    "profile_sidebar_border_color": "C0DEED",
+	    "profile_background_tile": false,
+	    "name": "Twitter API",
+	    "profile_image_url": "http://a0.twimg.com/profile_images/2284174872/7df3h38zabcvjylnyfe3_normal.png",
+	    "created_at": "Wed May 23 06:01:13 +0000 2007",
+	    "location": "San Francisco, CA",
+	    "follow_request_sent": false,
+	    "profile_link_color": "0084B4",
+	    "is_translator": false,
+	    "id_str": "6253282",
+	    "entities": {
+	      "url": {
+	        "urls": [{
+	          "expanded_url": null,
+	          "url": "http://dev.twitter.com",
+	          "indices": [0, 22]
+	        }]
+	      },
+	      "description": {
+	        "urls": []
+	      }
+	    },
+	    "default_profile": true,
+	    "contributors_enabled": true,
+	    "favourites_count": 24,
+	    "url": "http://dev.twitter.com",
+	    "profile_image_url_https": "https://si0.twimg.com/profile_images/2284174872/7df3h38zabcvjylnyfe3_normal.png",
+	    "utc_offset": -28800,
+	    "id": 6253282,
+	    "profile_use_background_image": true,
+	    "listed_count": 10775,
+	    "profile_text_color": "333333",
+	    "lang": "en",
+	    "followers_count": 1212864,
+	    "protected": false,
+	    "notifications": null,
+	    "profile_background_image_url_https": "https://si0.twimg.com/images/themes/theme1/bg.png",
+	    "profile_background_color": "C0DEED",
+	    "verified": true,
+	    "geo_enabled": true,
+	    "time_zone": "Pacific Time (US & Canada)",
+	    "description": "The Real Twitter API. I tweet about API changes, service issues and happily answer questions about Twitter and our API. Don't get an answer? It's on my website.",
+	    "default_profile_image": false,
+	    "profile_background_image_url": "http://a0.twimg.com/images/themes/theme1/bg.png",
+	    "statuses_count": 3333,
+	    "friends_count": 31,
+	    "following": null,
+	    "show_all_inline_media": false,
+	    "screen_name": "twitterapi"
+	  },
+	  "in_reply_to_screen_name": null
+	}, {
+	  "coordinates": null,
+	  "favorited": false,
+	  "truncated": false,
+	  "created_at": "Sat Aug 25 17:26:51 +0000 2012",
+	  "id_str": "239413543487819778",
+	  "entities": {
+	    "urls": [{
+	      "expanded_url": "https://dev.twitter.com/issues/485",
+	      "url": "https://t.co/p5bOzH0k",
+	      "indices": [97, 118],
+	      "display_url": "dev.twitter.com/issues/485"
+	    }],
+	    "hashtags": [],
+	    "user_mentions": []
+	  },
+	  "in_reply_to_user_id_str": null,
+	  "contributors": null,
+	  "text": "We are working to resolve issues with application management & logging in to the dev portal: https://t.co/p5bOzH0k ^TS",
+	  "retweet_count": 105,
+	  "in_reply_to_status_id_str": null,
+	  "id": 239413543487819778,
+	  "geo": null,
+	  "retweeted": false,
+	  "possibly_sensitive": false,
+	  "in_reply_to_user_id": null,
+	  "place": null,
+	  "user": {
+	    "profile_sidebar_fill_color": "DDEEF6",
+	    "profile_sidebar_border_color": "C0DEED",
+	    "profile_background_tile": false,
+	    "name": "Twitter API",
+	    "profile_image_url": "http://a0.twimg.com/profile_images/2284174872/7df3h38zabcvjylnyfe3_normal.png",
+	    "created_at": "Wed May 23 06:01:13 +0000 2007",
+	    "location": "San Francisco, CA",
+	    "follow_request_sent": false,
+	    "profile_link_color": "0084B4",
+	    "is_translator": false,
+	    "id_str": "6253282",
+	    "entities": {
+	      "url": {
+	        "urls": [{
+	          "expanded_url": null,
+	          "url": "http://dev.twitter.com",
+	          "indices": [0, 22]
+	        }]
+	      },
+	      "description": {
+	        "urls": []
+	      }
+	    },
+	    "default_profile": true,
+	    "contributors_enabled": true,
+	    "favourites_count": 24,
+	    "url": "http://dev.twitter.com",
+	    "profile_image_url_https": "https://si0.twimg.com/profile_images/2284174872/7df3h38zabcvjylnyfe3_normal.png",
+	    "utc_offset": -28800,
+	    "id": 6253282,
+	    "profile_use_background_image": true,
+	    "listed_count": 10775,
+	    "profile_text_color": "333333",
+	    "lang": "en",
+	    "followers_count": 1212864,
+	    "protected": false,
+	    "notifications": null,
+	    "profile_background_image_url_https": "https://si0.twimg.com/images/themes/theme1/bg.png",
+	    "profile_background_color": "C0DEED",
+	    "verified": true,
+	    "geo_enabled": true,
+	    "time_zone": "Pacific Time (US & Canada)",
+	    "description": "The Real Twitter API. I tweet about API changes, service issues and happily answer questions about Twitter and our API. Don't get an answer? It's on my website.",
+	    "default_profile_image": false,
+	    "profile_background_image_url": "http://a0.twimg.com/images/themes/theme1/bg.png",
+	    "statuses_count": 3333,
+	    "friends_count": 31,
+	    "following": null,
+	    "show_all_inline_media": false,
+	    "screen_name": "twitterapi"
+	  },
+	  "in_reply_to_screen_name": null
+	}];
+
+	(0, _reactDom.render)(_react2.default.createElement(_AppTweetList2.default, { tweets: tweets }), document.getElementById('root'));
 
 /***/ },
 /* 1 */
@@ -21108,6 +21270,10 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _AppTweet = __webpack_require__(173);
+
+	var _AppTweet2 = _interopRequireDefault(_AppTweet);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -21116,30 +21282,105 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var Main = function (_Component) {
-	  _inherits(Main, _Component);
+	var AppTweetList = function (_Component) {
+	  _inherits(AppTweetList, _Component);
 
-	  function Main() {
-	    _classCallCheck(this, Main);
+	  function AppTweetList() {
+	    _classCallCheck(this, AppTweetList);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Main).apply(this, arguments));
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(AppTweetList).apply(this, arguments));
 	  }
 
-	  _createClass(Main, [{
+	  _createClass(AppTweetList, [{
 	    key: 'render',
 	    value: function render() {
+	      console.log(this.props.tweets[0].user.name);
+	      var appTweets = this.props.tweets.map(function (tweet) {
+	        return _react2.default.createElement(_AppTweet2.default, { key: tweet.id,
+	          text: tweet.text,
+	          author: tweet.user.name,
+	          date: tweet.created_at });
+	      });
 	      return _react2.default.createElement(
-	        'h1',
+	        'div',
 	        null,
-	        'Hello World'
+	        _react2.default.createElement(
+	          'h1',
+	          null,
+	          this.props.tweets[0].user.name,
+	          '\'s\' App Tweets'
+	        ),
+	        appTweets
 	      );
 	    }
 	  }]);
 
-	  return Main;
+	  return AppTweetList;
 	}(_react.Component);
 
-	exports.default = Main;
+	exports.default = AppTweetList;
+
+/***/ },
+/* 173 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var AppTweet = function (_Component) {
+	  _inherits(AppTweet, _Component);
+
+	  function AppTweet() {
+	    _classCallCheck(this, AppTweet);
+
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(AppTweet).apply(this, arguments));
+	  }
+
+	  _createClass(AppTweet, [{
+	    key: "render",
+	    value: function render() {
+	      return _react2.default.createElement(
+	        "div",
+	        { className: "tweet-card" },
+	        _react2.default.createElement(
+	          "h6",
+	          null,
+	          this.props.author,
+	          " - ",
+	          this.props.date,
+	          " "
+	        ),
+	        this.props.text,
+	        _react2.default.createElement(
+	          "h6",
+	          null,
+	          "Number of characters: "
+	        )
+	      );
+	    }
+	  }]);
+
+	  return AppTweet;
+	}(_react.Component);
+
+	exports.default = AppTweet;
 
 /***/ }
 /******/ ]);

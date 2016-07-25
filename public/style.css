@@ -1,0 +1,32 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: #eee;
+  font: 16px/1 sans-serif;  
+}
+
+html, body, #root {
+  height: 100%;
+  margin: auto;
+  padding: 0;
+}
+
+
+#root {
+  height: 100%
+}
+
+h1 {
+  font-weight: 200;
+  color: #3b414c;
+  font-size: 20px;
+}
+
+.tweet-card {
+  position: relative;
+  min-height: 51px;
+  padding: 9px 12px;
+  border-bottom: 1px solid #e1e8ed;
+}
