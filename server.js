@@ -1,5 +1,9 @@
 import fs from 'fs';
 import express from 'express';
+var dotenv = require('dotenv');
+dotenv.load();
+
+// console.log(process.env.AUTH0_CLIENT_ID)
 
 let app = express();
 

@@ -1,6 +1,21 @@
 import React, {Component} from 'react';
 import {render} from 'react-dom';
+import {browserHistory, Router, Route, Link} from 'react-router';
+import AuthService from '../services/AuthService';
+
+
 import AppTweetList from './AppTweetList';
+import Login from './Login';
+
+console.log(process.env.AUTH0_DOMAIN)
+
+const auth = new AuthService(process.env.AUTH0_CLIENT_ID, process.env.AUTH0_DOMAIN);
+
+const requireAuth = (nextState, replace) => {
+  if (!auth.loggedIn()) {
+    replace({pathname: '/login'})
+  }
+}
 
 let tweets = [
   {
@@ -199,4 +214,44 @@ let tweets = [
   }
 ]
 
-render(<AppTweetList tweets={tweets} />, document.getElementById('root'));
+const App = React.createClass({
+  getInitialState() {
+    return {
+      loggedIn: auth.loggedIn()
+    }
+  },
+
+  updateAuth(loggedIn) {
+    this.setState({
+      loggedIn
+    })
+  },
+
+  componentWillMount() {
+    auth.onChange = this.updateAuth
+    auth.login();
+  },
+
+  render() {
+    return (
+      <div>
+        <ul>
+          <li>
+            {this.state.loggedIn ? (<Link to ="/logout">Log out</Link>) : (<Link to="/login">Log in</Link>)}
+          </li>
+          <li><Link to="/tweets">App Tweets</Link></li>
+        </ul>
+        {this.props.children}
+      </div>
+    );
+  }
+})
+
+render((
+  <Router history={browserHistory}>
+    <Route path='/' component={App} auth={auth}>
+      <Route path='login' component={Login} />
+      <Route path='tweets' component={AppTweetList} tweets={tweets} onEnter={requireAuth} />
+    </Route>
+  </Router>
+), document.getElementById('root'));

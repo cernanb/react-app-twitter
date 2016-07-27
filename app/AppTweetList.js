@@ -3,8 +3,8 @@ import AppTweet from './AppTweet'
 
 class AppTweetList extends Component {
   render() {
-    console.log(this.props.tweets[0].user.name);
-    var appTweets = this.props.tweets.map((tweet) => {
+    var appTweets = this.props.route.tweets.map((tweet) => {
+      console.log('hello')
       return <AppTweet key={tweet.id}
                        text={tweet.text}
                        author={tweet.user.name}
@@ -12,7 +12,7 @@ class AppTweetList extends Component {
     });
     return (
       <div>
-        <h1>{this.props.tweets[0].user.name}'s' App Tweets</h1>
+        <h1>App Tweets</h1>
         {appTweets}
       </div>
     );
