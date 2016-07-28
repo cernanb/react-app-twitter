@@ -2,6 +2,16 @@ import React, {Component} from 'react';
 import AuthService from '../services/AuthService';
 
 class Login extends Component {
+  signUp() {
+    this.props.auth.signUp({
+      connection: 'Username-Password-Authentication',
+      responseType: 'token',
+      email: ReactDOM.findDOMNode(this.refs.email).value,
+      password: ReactDOM.findDOMNode(this.refs.password).value
+    }, function(err) {
+      if (err) alert('something went wrong ' + err.message);
+    });
+  }
 
   handleSubmit(e) {
     e.preventDefault();
@@ -24,6 +34,7 @@ class Login extends Component {
           <label><input ref="email" placeholder="email" /></label> <br /><br/> 
           <label><input ref="pass" placeholder="password" /></label> <br /><br/>
           <button type="submit">Log In</button>
+          <button onClick={this.signUp.bind(this)}>Sign Up</button>
         </form>
       </div>
     )

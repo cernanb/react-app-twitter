@@ -3,7 +3,7 @@ var dotenv = require('dotenv');
 dotenv.config();
 
 var config = {
-  entry: __dirname + '/app/App.js',
+  entry: __dirname + '/app/app.js',
   output: {
     path: __dirname + '/public',
     filename: 'bundle.js'
