@@ -14,7 +14,8 @@ var config = {
       exclude: /node_modules/,
       loader: 'babel',
       query: {
-        presets: ['es2015', 'react']
+        presets: ['es2015', 'react', 'stage-0'],
+        plugins: ['./babelRelayPlugin']
       }
     }]
   },

@@ -5,6 +5,7 @@ import Container from './Container';
 import Home from './Home';
 import Login from './Login';
 import AppTweetList from './AppTweetList';
+import StoreQueries from '../queries/StoreQueries';
 
 const auth = new AuthService(process.env.AUTH0_CLIENT_ID, process.env.AUTH0_DOMAIN);
 
@@ -16,9 +17,6 @@ const requireAuth = (nextState, replace) => {
 
 let tweets = [
   {
-    "coordinates": null,
-    "favorited": false,
-    "truncated": false,
     "created_at": "Wed Aug 29 17:12:58 +0000 2012",
     "id_str": "240859602684612608",
     "entities": {
@@ -211,16 +209,17 @@ let tweets = [
   }
 ]
 
-export const makeMainRoutes = () => {
-  return (
+export default ( 
     <Route path='/' component={Container} auth={auth}>
       <IndexRedirect to='/home' />
       <Route path='home' component={Home} onEnter={requireAuth} />
       <Route path='login' component={Login} />
       <Route path="access_token=:token" component={Login} />
-      <Route path='tweets' component={AppTweetList} tweets={tweets} onEnter={requireAuth} />
+      <Route path='tweets' queries={StoreQueries} limit={1} component={AppTweetList} tweets={tweets} onEnter={requireAuth} />
     </Route>
-  )
-}
+);
 
-export default makeMainRoutes
+
+
+
+// export default makeMainRoutes
