@@ -6,7 +6,6 @@ import Relay from 'react-relay';
 class AppTweetList extends Component {
 
   render() {
-    console.log(this.props.store.tweets)
     var appTweets = this.props.store.tweets.map((tweet) => {
       return <AppTweet key={tweet._id}
                        text={tweet.text}
