@@ -6,11 +6,11 @@ import Relay from 'react-relay';
 class AppTweetList extends Component {
 
   render() {
-    console.log(this.props)
-    var appTweets = this.props.route.tweets.slice(0, this.props.route.limit).map((tweet) => {
-      return <AppTweet key={tweet.id}
+    console.log(this.props.store.tweets)
+    var appTweets = this.props.store.tweets.map((tweet) => {
+      return <AppTweet key={tweet._id}
                        text={tweet.text}
-                       author={tweet.user.name}
+                       author={tweet.author}
                        date={tweet.created_at} />
     });
     return (
@@ -22,19 +22,19 @@ class AppTweetList extends Component {
   }
 }
 
-// export default Relay.createContainer(AppTweetList, {
-//   fragments: {
-//     store: () => Relay.QL`
-//       fragment on Store {
-//         tweets {
-//           _id,
-//           text,
-//           author, 
-//           date
-//         }
-//       }
-//     `
-//   }
-// });
+AppTweetList =  Relay.createContainer(AppTweetList, {
+  fragments: {
+    store: () => Relay.QL`
+      fragment on Store {
+        tweets {
+          _id,
+          text,
+          created_at,
+          author
+        }
+      }
+    `
+  }
+});
 
 export default AppTweetList;

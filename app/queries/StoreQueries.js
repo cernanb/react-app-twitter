@@ -4,7 +4,9 @@ export default {
   store: (Component) => Relay.QL`
     query { 
       store { 
-        ${Component.getFragment('store')}
+        tweets {
+          _id
+        }
       }
     }
   `
