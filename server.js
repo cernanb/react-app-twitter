@@ -68,7 +68,7 @@ app.get('/auth/twitter/callback', passport.authenticate('twitter', {
     callbackURL: 'http://localhost:5000/auth/twitter/callback',
     passReqToCallback: true},
     function(req, token, tokenSecret, profile, done) {
-      
+
       let query = {
         'twitter.id': profile.id
       }
@@ -96,8 +96,8 @@ app.get('/auth/twitter/callback', passport.authenticate('twitter', {
         })
 
       stream = new twitterStream({
-        consumer_key: 'v5QzZt6nOIdOU4SGrBDuS3hEB',
-        consumer_secret: '6iJukgMQ11sYRfSsPB5LpFDmz1QSvikoJEbEnhlHwidAjykbba',
+        consumer_key: process.env.TWITTER_CONSUMER_KEY,
+        consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
         access_token_key: token,
         access_token_secret: tokenSecret
       });
@@ -128,15 +128,3 @@ app.get('/auth/twitter/callback', passport.authenticate('twitter', {
   // })
 
 })();
-
-
-
-
-
-
-
-
-
-
-
-
