@@ -3,6 +3,7 @@ import AppTweet from './AppTweet';
 import Relay from 'react-relay';
 
 
+
 class AppTweetList extends Component {
 
   render() {
@@ -14,6 +15,7 @@ class AppTweetList extends Component {
     });
     return (
       <div>
+        <a href='/auth/twitter'>Authorize Twitter</a>
         <h1>App Tweets</h1>
         {appTweets}
       </div>
