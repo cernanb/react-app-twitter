@@ -13,7 +13,7 @@ var dotenv = require('dotenv');
 import oauth from 'oauth';
 dotenv.load();
 var router = express.Router();
-var twitterStream = require('./app/services/twitterStream');
+var twitterStream = require('./utils/twitterStream');
 var stream;
 
 
@@ -53,7 +53,9 @@ app.get('/auth/twitter/callback', passport.authenticate('twitter', {
     graphiql: true
   }));
 
-  app.listen(5000, () => console.log('Listening on port 5000...'));
+  var server = app.listen(5000, () => console.log('Listening on port 5000...'));
+
+  var io = require('socket.io')(server);
 
   let json = await graphql(schema, introspectionQuery);
   fs.writeFile('./data/schema.json', JSON.stringify(json, null, 2), err => {
@@ -63,8 +65,8 @@ app.get('/auth/twitter/callback', passport.authenticate('twitter', {
   });
 
   var ts = new TwitterStrategy({
-    consumerKey: 'v5QzZt6nOIdOU4SGrBDuS3hEB',
-    consumerSecret: '6iJukgMQ11sYRfSsPB5LpFDmz1QSvikoJEbEnhlHwidAjykbba',
+    consumerKey: process.env.TWITTER_CONSUMER_KEY,
+    consumerSecret: process.env.TWITTER_CONSUMER_SECRET,
     callbackURL: 'http://localhost:5000/auth/twitter/callback',
     passReqToCallback: true},
     function(req, token, tokenSecret, profile, done) {
@@ -111,20 +113,15 @@ app.get('/auth/twitter/callback', passport.authenticate('twitter', {
           tweet.created_at = json.created_at;
           tweet.author = json.user.name;
           db.collection("tweets").save(tweet);
-          console.log('this is a tweet')
+          
+          io.emit('tweet', tweet);
         }
-        // console.log(json);
+        
       })
 
     }
   )
 
   passport.use(ts);
-
-  // stream.stream();
-
-  // stream.on('data', function(json) {
-  //   console.log(json);
-  // })
 
 })();

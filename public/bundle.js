@@ -76268,19 +76268,44 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+	// import io from 'socket.io-client';
+	// let socket;
+
+
 	var AppTweetList = function (_Component) {
 	  _inherits(AppTweetList, _Component);
 
-	  function AppTweetList() {
+	  function AppTweetList(props) {
 	    _classCallCheck(this, AppTweetList);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(AppTweetList).apply(this, arguments));
+	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(AppTweetList).call(this, props));
+
+	    _this.state = { tweets: _this.props.store.tweets };
+	    return _this;
 	  }
 
 	  _createClass(AppTweetList, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      var self = this;
+	      var socket = io();
+	      socket.on('tweet', function (data) {
+	        self.addTweet(data);
+	      });
+	    }
+	  }, {
+	    key: 'addTweet',
+	    value: function addTweet(tweet) {
+	      console.log(tweet);
+	      // var updatedTweets = this.state.tweets.push(tweet);
+	      // console.log(updatedTweets)
+	      this.setState({ tweets: this.state.tweets.concat([tweet]) });
+	      // console.log(this.state.tweets)
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
-	      var appTweets = this.props.store.tweets.map(function (tweet) {
+	      var appTweets = this.state.tweets.map(function (tweet) {
 	        return _react2.default.createElement(_AppTweet2.default, { key: tweet._id,
 	          text: tweet.text,
 	          author: tweet.author,
